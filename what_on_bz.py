@@ -2,7 +2,7 @@
 
 from argparse import ArgumentParser
 from datetime import datetime, timedelta
-import urllib
+import urllib.parse
 
 URL = 'https://bugzilla.mozilla.org/buglist.cgi'
 
@@ -38,7 +38,7 @@ def get_date_str(daydelta):
 def get_url_for_params(static_params, dynamic_params):
     out_params = static_params.copy()
     out_params.update(dynamic_params)
-    return URL + '?' + urllib.urlencode(out_params)
+    return URL + '?' + urllib.parse.urlencode(out_params)
 
 
 args = parse_arguments()
